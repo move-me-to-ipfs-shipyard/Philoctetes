@@ -18,6 +18,7 @@
 
    [Philoctetes.seed]
    [Philoctetes.mandarins]
+   [Philoctetes.B12]
    [Philoctetes.salt]
    [Philoctetes.oats]
    [Philoctetes.prunes])
@@ -87,6 +88,7 @@
   (require
    '[Philoctetes.seed]
    '[Philoctetes.mandarins]
+   '[Philoctetes.B12]
    '[Philoctetes.salt]
    '[Philoctetes.oats]
    '[Philoctetes.prunes]
@@ -119,6 +121,15 @@
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
                                           (put! tabs| {:op :tab :tab-name :mandarins})
+                                          #_(put! menubar| {:op :game}))))))
+              
+              (.add (doto (JMenuItem.)
+                      (.setText "B12")
+                      (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_F (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
+                      (.setMnemonic \F)
+                      (.addActionListener
+                       (on-menubar-item (fn [_ event]
+                                          (put! tabs| {:op :tab :tab-name :B12})
                                           #_(put! menubar| {:op :game}))))))
               
               (.add (doto (JMenuItem.)
@@ -532,6 +543,7 @@
          
          (let [jtabbed-pane (JTabbedPane.)
                tabs {:mandarins (JPanel.)
+                     :B12 (JPanel.)
                      :salt (JPanel.)
                      :oats (JPanel.)
                      :prunes (JPanel.)}]
@@ -542,6 +554,7 @@
                        (calculateTabAreaHeight [tab-placement run-count max-tab-height]
                          (int 0))))
              (.addTab "mandarins" (:mandarins tabs))
+             (.addTab "B12" (:B12 tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "oats" (:oats tabs))
              (.addTab "prunes" (:prunes tabs))

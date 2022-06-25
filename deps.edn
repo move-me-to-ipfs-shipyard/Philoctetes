@@ -1,0 +1,22 @@
+{:paths ["src"]
+ :mvn/repos {"jitpack.io" {:url "https://jitpack.io"}
+             "central" {:url "https://jcenter.bintray.com/"}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        org.clojure/core.async {:mvn/version "1.3.618"}
+
+        com.formdev/flatlaf {:mvn/version "2.1"}
+        com.formdev/flatlaf-extras {:mvn/version "2.1"}
+        com.miglayout/miglayout-swing {:mvn/version "5.3"}
+        test.check/test.check {:git/url "https://github.com/clojure/test.check"
+                               :sha "b6a318af92e836f1f20960f38a5944168b88d60d"}
+        #_clj-http/clj-http #_{:mvn/version "3.12.3"}
+        cheshire/cheshire {:mvn/version "5.10.2"}
+
+        io.replikativ/datahike {:mvn/version "0.5.1504"}}
+
+ :aliases
+ {:Ripley {:extra-deps {Ripley/Ripley {:git/url "https://github.com/Empire-Strikes-Back/Ripley"
+                                       :sha "becd2573ab55d42933134d346bc46cdd8fa08c04"}}}
+
+  :Genie {:extra-deps {Genie/Genie {:git/url "https://github.com/Empire-Strikes-Back/Genie"
+                                    :sha "fe9200d223e3a5c79e88dfa17bc2697c09dae70e"}}}}}

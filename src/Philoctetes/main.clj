@@ -18,7 +18,6 @@
 
    [Philoctetes.seed]
    [Philoctetes.pears]
-   [Philoctetes.pumpkin-seeds]
    [Philoctetes.salt]
    [Philoctetes.oats]
    [Philoctetes.prunes])
@@ -88,7 +87,6 @@
   (require
    '[Philoctetes.seed]
    '[Philoctetes.pears]
-   '[Philoctetes.pumpkin-seeds]
    '[Philoctetes.salt]
    '[Philoctetes.oats]
    '[Philoctetes.prunes]
@@ -121,15 +119,6 @@
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
                                           (put! tabs| {:op :tab :tab-name :pears})
-                                          #_(put! menubar| {:op :game}))))))
-              
-              (.add (doto (JMenuItem.)
-                      (.setText "pumpkin-seeds")
-                      (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_P (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
-                      (.setMnemonic \P)
-                      (.addActionListener
-                       (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :pumpkin-seeds})
                                           #_(put! menubar| {:op :game}))))))
               
               (.add (doto (JMenuItem.)
@@ -543,7 +532,6 @@
          
          (let [jtabbed-pane (JTabbedPane.)
                tabs {:pears (JPanel.)
-                     :pumpkin-seeds (JPanel.)
                      :salt (JPanel.)
                      :oats (JPanel.)
                      :prunes (JPanel.)}]
@@ -554,7 +542,6 @@
                        (calculateTabAreaHeight [tab-placement run-count max-tab-height]
                          (int 0))))
              (.addTab "pears" (:pears tabs))
-             (.addTab "pumpkin-seeds" (:pumpkin-seeds tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "oats" (:oats tabs))
              (.addTab "prunes" (:prunes tabs))

@@ -17,7 +17,7 @@
    [taoensso.timbre]
 
    [Philoctetes.seed]
-   [Philoctetes.pears]
+   [Philoctetes.mandarins]
    [Philoctetes.salt]
    [Philoctetes.oats]
    [Philoctetes.prunes])
@@ -86,7 +86,7 @@
   []
   (require
    '[Philoctetes.seed]
-   '[Philoctetes.pears]
+   '[Philoctetes.mandarins]
    '[Philoctetes.salt]
    '[Philoctetes.oats]
    '[Philoctetes.prunes]
@@ -113,12 +113,12 @@
               (.setMnemonic \F)
               
               (.add (doto (JMenuItem.)
-                      (.setText "pears")
+                      (.setText "mandarins")
                       (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_F (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
                       (.setMnemonic \F)
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :pears})
+                                          (put! tabs| {:op :tab :tab-name :mandarins})
                                           #_(put! menubar| {:op :game}))))))
               
               (.add (doto (JMenuItem.)
@@ -531,7 +531,7 @@
 
          
          (let [jtabbed-pane (JTabbedPane.)
-               tabs {:pears (JPanel.)
+               tabs {:mandarins (JPanel.)
                      :salt (JPanel.)
                      :oats (JPanel.)
                      :prunes (JPanel.)}]
@@ -541,7 +541,7 @@
              (.setUI (proxy [BasicTabbedPaneUI] []
                        (calculateTabAreaHeight [tab-placement run-count max-tab-height]
                          (int 0))))
-             (.addTab "pears" (:pears tabs))
+             (.addTab "mandarins" (:mandarins tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "oats" (:oats tabs))
              (.addTab "prunes" (:prunes tabs))
@@ -563,7 +563,7 @@
                               :settingsA settingsA})
 
            (discover-process
-            {:jpanel-tab (:pears tabs)
+            {:jpanel-tab (:mandarins tabs)
              :ops| ops|
              :gamesA gamesA
              :gameA gameA

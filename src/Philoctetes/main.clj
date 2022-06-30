@@ -403,7 +403,6 @@
     :or {}
     :as opts}]
   (let [jscroll-pane (JScrollPane.)
-
         jcheckbox-apricotseed (JCheckBox.)]
 
     #_(doto jscroll-pane
@@ -413,7 +412,9 @@
     (doto jpanel-tab
       (.setLayout (MigLayout. "insets 10"))
       (.add (JLabel. ":apricotseed?") "cell 0 0")
-      #_(.add jcheckbox-apricotseed "cell 0 0"))
+      (.add jcheckbox-apricotseed "cell 0 0")
+      (.add (JLabel. ":ipfs-http-api") "cell 0 1")
+      (.add (JTextField. "http://127.0.0.1:5001") "cell 1 1"))
 
     (.addActionListener jcheckbox-apricotseed
                         (reify ActionListener
@@ -421,8 +422,8 @@
                             (SwingUtilities/invokeLater
                              (reify Runnable
                                (run [_]
-                                 (put! ops| {:op :settings-value
-                                             :_ (.isSelected jcheckbox-apricotseed)})))))))
+                                 #_(put! ops| {:op :settings-value
+                                               :_ (.isSelected jcheckbox-apricotseed)})))))))
 
     (remove-watch settingsA :settings-process)
     (add-watch settingsA :settings-process
@@ -571,7 +572,7 @@
 
            (Philoctetes.oats/process {:jpanel-tab (:oats tabs)})
 
-           (settings-process {:jpanel-tab (:prunes tabs)
+           (settings-process {:jpanel-tab (:B12 tabs)
                               :ops| ops|
                               :settingsA settingsA})
 

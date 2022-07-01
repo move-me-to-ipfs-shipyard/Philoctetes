@@ -16,7 +16,6 @@
    [datahike.api]
    [taoensso.timbre]
 
-   [Philoctetes.seed]
    [Philoctetes.mandarins]
    [Philoctetes.B12]
    [Philoctetes.salt]
@@ -86,7 +85,6 @@
 (defn reload
   []
   (require
-   '[Philoctetes.seed]
    '[Philoctetes.mandarins]
    '[Philoctetes.B12]
    '[Philoctetes.salt]

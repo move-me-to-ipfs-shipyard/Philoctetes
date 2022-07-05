@@ -16,7 +16,7 @@
    [datahike.api]
    [taoensso.timbre]
 
-   [Philoctetes.mandarins]
+   [Philoctetes.oranges]
    [Philoctetes.B12]
    [Philoctetes.salt]
    [Philoctetes.oats]
@@ -85,7 +85,7 @@
 (defn reload
   []
   (require
-   '[Philoctetes.mandarins]
+   '[Philoctetes.oranges]
    '[Philoctetes.B12]
    '[Philoctetes.salt]
    '[Philoctetes.oats]
@@ -113,12 +113,12 @@
               (.setMnemonic \F)
               
               (.add (doto (JMenuItem.)
-                      (.setText "mandarins")
+                      (.setText "oranges")
                       (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_F (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
                       (.setMnemonic \F)
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :mandarins})
+                                          (put! tabs| {:op :tab :tab-name :oranges})
                                           #_(put! menubar| {:op :game}))))))
               
               (.add (doto (JMenuItem.)
@@ -541,7 +541,7 @@
 
          
          (let [jtabbed-pane (JTabbedPane.)
-               tabs {:mandarins (JPanel.)
+               tabs {:oranges (JPanel.)
                      :B12 (JPanel.)
                      :salt (JPanel.)
                      :oats (JPanel.)
@@ -552,7 +552,7 @@
              (.setUI (proxy [BasicTabbedPaneUI] []
                        (calculateTabAreaHeight [tab-placement run-count max-tab-height]
                          (int 0))))
-             (.addTab "mandarins" (:mandarins tabs))
+             (.addTab "oranges" (:oranges tabs))
              (.addTab "B12" (:B12 tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "oats" (:oats tabs))
@@ -575,7 +575,7 @@
                               :settingsA settingsA})
 
            (discover-process
-            {:jpanel-tab (:mandarins tabs)
+            {:jpanel-tab (:oranges tabs)
              :ops| ops|
              :gamesA gamesA
              :gameA gameA

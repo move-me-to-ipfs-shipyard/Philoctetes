@@ -1,4 +1,4 @@
-(ns Philoctetes.wine
+(ns Philoctetes.prunes
   (:require
    [clojure.core.async
     :refer [chan put! take! close! offer! to-chan! timeout thread

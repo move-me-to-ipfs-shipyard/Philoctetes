@@ -1,4 +1,4 @@
-(ns Philoctetes.bread
+(ns Philoctetes.oats
   (:require
    [clojure.core.async
     :refer [chan put! take! close! offer! to-chan! timeout thread

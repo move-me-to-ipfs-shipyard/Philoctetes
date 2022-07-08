@@ -19,7 +19,7 @@
    [Philoctetes.mandarins]
    [Philoctetes.B12]
    [Philoctetes.salt]
-   [Philoctetes.oats]
+   [Philoctetes.bread]
    [Philoctetes.prunes])
   (:import
    (javax.swing JFrame WindowConstants JPanel JScrollPane JTextArea BoxLayout JEditorPane ScrollPaneConstants SwingUtilities JDialog)
@@ -88,7 +88,7 @@
    '[Philoctetes.mandarins]
    '[Philoctetes.B12]
    '[Philoctetes.salt]
-   '[Philoctetes.oats]
+   '[Philoctetes.bread]
    '[Philoctetes.prunes]
    '[Philoctetes.main]
    :reload))
@@ -149,12 +149,12 @@
                         (.setMnemonic \O)
                         (.addActionListener on-menu-item-show-dialog)))
               (.add (doto (JMenuItem.)
-                      (.setText "oats")
+                      (.setText "bread")
                       (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_O (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
                       (.setMnemonic \O)
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :oats})
+                                          (put! tabs| {:op :tab :tab-name :bread})
                                           #_(put! menubar| {:op :discover}))))))
               
               (.add (doto (JMenuItem.)
@@ -544,7 +544,7 @@
                tabs {:mandarins (JPanel.)
                      :B12 (JPanel.)
                      :salt (JPanel.)
-                     :oats (JPanel.)
+                     :bread (JPanel.)
                      :prunes (JPanel.)}]
 
            (doto jtabbed-pane
@@ -555,9 +555,9 @@
              (.addTab "mandarins" (:mandarins tabs))
              (.addTab "B12" (:B12 tabs))
              (.addTab "salt" (:salt tabs))
-             (.addTab "oats" (:oats tabs))
+             (.addTab "bread" (:bread tabs))
              (.addTab "prunes" (:prunes tabs))
-             (.setSelectedComponent (:oats tabs)))
+             (.setSelectedComponent (:bread tabs)))
 
            (go
              (loop []
@@ -568,7 +568,7 @@
                       (.setSelectedComponent jtabbed-pane ^JPanel ((:tab-name value) tabs)))))
                  (recur))))
 
-           (Philoctetes.oats/process {:jpanel-tab (:oats tabs)})
+           (Philoctetes.bread/process {:jpanel-tab (:bread tabs)})
 
            (settings-process {:jpanel-tab (:B12 tabs)
                               :ops| ops|
@@ -581,12 +581,12 @@
              :gameA gameA
              :stateA stateA})
 
-           (doto ^JPanel (:oats tabs)
+           (doto ^JPanel (:bread tabs)
              (.setLayout (MigLayout. "insets 10"
                                      "[grow,shrink,fill]"
                                      "[grow,shrink,fill]")))
 
-           (.add ^JPanel (:oats tabs) (JTextField. "Word") "id Word, pos 50%-Word.w 50%-Word.h" #_"dock center,width 100 :100%:100%")
+           (.add ^JPanel (:bread tabs) (JTextField. "Word") "id Word, pos 50%-Word.w 50%-Word.h" #_"dock center,width 100 :100%:100%")
 
            (.add jroot-panel jtabbed-pane))
          

@@ -20,7 +20,7 @@
    [Philoctetes.B12]
    [Philoctetes.salt]
    [Philoctetes.bread]
-   [Philoctetes.raisins])
+   [Philoctetes.wine])
   (:import
    (javax.swing JFrame WindowConstants JPanel JScrollPane JTextArea BoxLayout JEditorPane ScrollPaneConstants SwingUtilities JDialog)
    (javax.swing JMenu JMenuItem JMenuBar KeyStroke JOptionPane JToolBar JButton JToggleButton JSplitPane JLabel JTextPane JTextField JTable)
@@ -89,7 +89,7 @@
    '[Philoctetes.B12]
    '[Philoctetes.salt]
    '[Philoctetes.bread]
-   '[Philoctetes.raisins]
+   '[Philoctetes.wine]
    '[Philoctetes.main]
    :reload))
 
@@ -158,12 +158,12 @@
                                           #_(put! menubar| {:op :discover}))))))
               
               (.add (doto (JMenuItem.)
-                      (.setText "raisins")
+                      (.setText "wine")
                       (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_W (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
                       (.setMnemonic \W)
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :raisins})
+                                          (put! tabs| {:op :tab :tab-name :wine})
                                           #_(put! menubar| {:op :game}))))))
 
               (.add (doto (JMenuItem.)
@@ -544,7 +544,7 @@
                      :B12 (JPanel.)
                      :salt (JPanel.)
                      :bread (JPanel.)
-                     :raisins (JPanel.)}]
+                     :wine (JPanel.)}]
 
            (doto jtabbed-pane
              (.setTabLayoutPolicy JTabbedPane/SCROLL_TAB_LAYOUT)
@@ -555,7 +555,7 @@
              (.addTab "B12" (:B12 tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "bread" (:bread tabs))
-             (.addTab "raisins" (:raisins tabs))
+             (.addTab "wine" (:wine tabs))
              (.setSelectedComponent (:bread tabs)))
 
            (go

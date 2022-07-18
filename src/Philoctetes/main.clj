@@ -21,7 +21,6 @@
    [Philoctetes.B12]
    [Philoctetes.salt]
    [Philoctetes.bread]
-   [Philoctetes.water]
    [Philoctetes.raisins])
   (:import
    (javax.swing JFrame WindowConstants JPanel JScrollPane JTextArea BoxLayout JEditorPane ScrollPaneConstants SwingUtilities JDialog)
@@ -92,7 +91,6 @@
    '[Philoctetes.B12]
    '[Philoctetes.salt]
    '[Philoctetes.bread]
-   '[Philoctetes.water]
    '[Philoctetes.raisins]
    '[Philoctetes.main]
    :reload))
@@ -168,15 +166,6 @@
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
                                           (put! tabs| {:op :tab :tab-name :bread})
-                                          #_(put! menubar| {:op :discover}))))))
-              
-              (.add (doto (JMenuItem.)
-                      (.setText "water")
-                      (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_O (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
-                      (.setMnemonic \O)
-                      (.addActionListener
-                       (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :water})
                                           #_(put! menubar| {:op :discover}))))))
               
               (.add (doto (JMenuItem.)
@@ -567,7 +556,6 @@
                      :B12 (JPanel.)
                      :salt (JPanel.)
                      :bread (JPanel.)
-                     :water (JPanel.)
                      :raisins (JPanel.)}]
 
            (doto jtabbed-pane
@@ -580,7 +568,6 @@
              (.addTab "B12" (:B12 tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "bread" (:bread tabs))
-             (.addTab "water" (:water tabs))
              (.addTab "raisins" (:raisins tabs))
              (.setSelectedComponent (:bread tabs)))
 

@@ -17,7 +17,6 @@
    [taoensso.timbre]
 
    [Philoctetes.oranges]
-   [Philoctetes.grapefruit]
    [Philoctetes.B12]
    [Philoctetes.salt]
    [Philoctetes.bread]
@@ -87,7 +86,6 @@
   []
   (require
    '[Philoctetes.oranges]
-   '[Philoctetes.grapefruit]
    '[Philoctetes.B12]
    '[Philoctetes.salt]
    '[Philoctetes.bread]
@@ -121,15 +119,6 @@
                       (.addActionListener
                        (on-menubar-item (fn [_ event]
                                           (put! tabs| {:op :tab :tab-name :oranges})
-                                          #_(put! menubar| {:op :game}))))))
-              
-              (.add (doto (JMenuItem.)
-                      (.setText "grapefruit")
-                      (.setAccelerator (KeyStroke/getKeyStroke KeyEvent/VK_F (-> (Toolkit/getDefaultToolkit) (.getMenuShortcutKeyMask))))
-                      (.setMnemonic \F)
-                      (.addActionListener
-                       (on-menubar-item (fn [_ event]
-                                          (put! tabs| {:op :tab :tab-name :grapefruit})
                                           #_(put! menubar| {:op :game}))))))
               
               (.add (doto (JMenuItem.)
@@ -552,7 +541,6 @@
          
          (let [jtabbed-pane (JTabbedPane.)
                tabs {:oranges (JPanel.)
-                     :grapefruit (JPanel.)
                      :B12 (JPanel.)
                      :salt (JPanel.)
                      :bread (JPanel.)
@@ -564,7 +552,6 @@
                        (calculateTabAreaHeight [tab-placement run-count max-tab-height]
                          (int 0))))
              (.addTab "oranges" (:oranges tabs))
-             (.addTab "grapefruit" (:grapefruit tabs))
              (.addTab "B12" (:B12 tabs))
              (.addTab "salt" (:salt tabs))
              (.addTab "bread" (:bread tabs))

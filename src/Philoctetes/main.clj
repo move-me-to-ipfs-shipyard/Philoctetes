@@ -16,6 +16,7 @@
    [datahike.api]
    [taoensso.timbre]
 
+   [Philoctetes.water]
    [Philoctetes.oranges]
    [Philoctetes.B12]
    [Philoctetes.salt]
@@ -85,6 +86,7 @@
 (defn reload
   []
   (require
+   '[Philoctetes.water]
    '[Philoctetes.oranges]
    '[Philoctetes.B12]
    '[Philoctetes.salt]
